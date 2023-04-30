@@ -2,13 +2,13 @@ const CarModel = require("../models/CAR.scehma");
 
 
 exports.createCar = async (req, res) => {
-  const { profile_pic, company_name, modal_name, price_of_renting_per_day, owner_id } = req.body;
+  const { profile_pic, company_name, modal_name, modal_year, price_of_renting_per_day, owner_id } = req.body;
 
   let carObj = {
     profile_pic: profile_pic,
     company_name: company_name,
     modal_name: modal_name,
-    modal_name: modal_name,
+    modal_year: modal_year,
     price_of_renting_per_day: price_of_renting_per_day,
     owner_id: owner_id,
   };

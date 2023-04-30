@@ -1,13 +1,10 @@
 const express = require("express");
-const multer = require("multer");
 const CarRouter = express.Router();
 const {
-    createCar,
-    
+    createCar,  
 } = require("../controllers/CarController");
 
 
-
-CarRouter.post("/create", createCar);
+CarRouter.post("/add-car", createCar);
 
 module.exports=CarRouter

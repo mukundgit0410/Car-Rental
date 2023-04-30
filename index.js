@@ -91,7 +91,12 @@ mongoose
 //   }
 // });
 const UserRouter = require("./routes.js/UserRouter")
-app.use("/auth", UserRouter)
+const CarRouter = require("./routes.js/CarRouter")
+const BookingRouter = require("./routes.js/BookingRouter")
+
+app.use("/user", UserRouter)
+app.use("/car", CarRouter)
+app.use("/booking", BookingRouter)
 
 app.listen(process.env.PORT, () => {
   console.log("server running");

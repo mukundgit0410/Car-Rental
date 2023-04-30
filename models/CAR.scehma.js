@@ -21,12 +21,11 @@ const CarSchema = new Schema({
   },
   owner_id: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "UserDatabase",
+    ref: "User",
   },
   status: {
     type: String,
-    enum: ["pending", "approved", "rejected"],
-    default: "pending",
+    enum: ["available", "not-available"],
   },
 });
 
