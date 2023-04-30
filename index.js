@@ -91,9 +91,7 @@ mongoose
 //   }
 // });
 const UserRouter = require("./routes.js/UserRouter")
-const ProductsRouter = require("./routes.js/ProdutsRouter")
 app.use("/auth", UserRouter)
-app.use("/auth/products", ProductsRouter)
 
 app.listen(process.env.PORT, () => {
   console.log("server running");

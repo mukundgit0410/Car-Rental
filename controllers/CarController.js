@@ -1,4 +1,4 @@
-const RoleModel = require("../models/CAR.scehma");
+const CarModel = require("../models/CAR.scehma");
 
 
 exports.createCar = async (req, res) => {
