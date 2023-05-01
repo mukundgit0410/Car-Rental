@@ -79,27 +79,29 @@ exports.bookingListCar = async (req, res) => {
 
 exports.bookingListUpdate = async (req, res) => {
   try {
-
-    const {startDate, endDate, status } = req.body;
-    filter = {
+    const filter = {
       car: req.body.carId,
       user: req.body.userId
     };
 
-    update = {
-      startDate: startDate,
-      endDate: endDate,
+    const update = {
+      startDate: req.body.startDate,
+      endDate: req.body.endDate,
     }
     
-    bookingListUpdate = await BookingModel.findOneAndUpdate(filter , update ,{
+    const bookingListUpdate = await BookingModel.findOneAndUpdate(filter, update, {
       new: true
     })
       
     console.log(bookingListUpdate);
     if (bookingListUpdate) {
       return res.json({
-        message: "Updated booking List",
+        message: "Updated booking list",
         data: bookingListUpdate,
+      });
+    } else {
+      return res.json({
+        message: "Booking not found",
       });
     }
   } catch (err) {
@@ -108,3 +110,4 @@ exports.bookingListUpdate = async (req, res) => {
     });
   }
 };
+
