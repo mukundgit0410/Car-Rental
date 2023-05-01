@@ -54,6 +54,7 @@ exports.bookingListUser = async (req, res) => {
     });
   }
 };
+
 exports.bookingListCar = async (req, res) => {
   try {
     filter = {
@@ -67,6 +68,38 @@ exports.bookingListCar = async (req, res) => {
       return res.json({
         message: "Car booking List",
         data: bookingListUser,
+      });
+    }
+  } catch (err) {
+    return res.json({
+      message: err.message,
+    });
+  }
+};
+
+exports.bookingListUpdate = async (req, res) => {
+  try {
+
+    const {startDate, endDate, status } = req.body;
+    filter = {
+      car: req.body.carId,
+      user: req.body.userId
+    };
+
+    update = {
+      startDate: startDate,
+      endDate: endDate,
+    }
+    
+    bookingListUpdate = await BookingModel.findOneAndUpdate(filter , update ,{
+      new: true
+    })
+      
+    console.log(bookingListUpdate);
+    if (bookingListUpdate) {
+      return res.json({
+        message: "Updated booking List",
+        data: bookingListUpdate,
       });
     }
   } catch (err) {
