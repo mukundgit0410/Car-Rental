@@ -27,13 +27,14 @@ exports.cretaeUserTypeController = async (req, res) => {
 exports.registerController = async (req, res) => {
   try {
     const { name, email, password, user_type } = req.body;
-
+    const salt = await bcrypt.genSalt(10);
+    const encryptpasswd = await bcrypt.hash(password, salt);
     const dataExists = await UserModel.findOne({ email });
     if (!dataExists) {
       let userobj = {
         name: name,
         email: email,
-        password: bcrypt.hashSync(password, 8),
+        password: encryptpasswd,
         user_type: user_type,
       };
       let data = await UserModel(userobj).save();
