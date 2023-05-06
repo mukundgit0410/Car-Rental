@@ -11,7 +11,7 @@ const CarSchema = new Schema({
     type: String,
     required: true,
   },
-  modal_name: {
+  model_name: {
     type: String,
     required: true,
   },
@@ -27,7 +27,7 @@ const CarSchema = new Schema({
     type: String,
     enum: ["pending", "approved", "rejected"],
     default: "pending",
-  },
+  }
 });
 
 const CarModel = mongoose.model("Car", CarSchema);

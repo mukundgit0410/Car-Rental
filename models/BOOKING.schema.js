@@ -19,11 +19,11 @@ const bookingSchema = new mongoose.Schema({
     type: Date,
     required: true
   },
-  // status: {
-  //   type: String,
-  //   enum: ['pending', 'approved', 'rejected'],
-  //   default: 'pending'
-  // }
+  status: {
+    type: String,
+    enum: ['pending', 'approved', 'rejected'],
+    default: 'pending'
+  }
 }, { timestamps: true });
 
 module.exports = mongoose.model('BookingDatabase', bookingSchema);

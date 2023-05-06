@@ -1,5 +1,5 @@
 const UserModel = require("../models/USERS.scehma");
-const RoleModel = require("../models/ROLE.scehma");
+// const RoleModel = require("../models/ROLE.scehma");
 const bcrypt = require("bcrypt");
 
 exports.cretaeUserTypeController = async (req, res) => {
