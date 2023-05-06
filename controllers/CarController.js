@@ -31,7 +31,7 @@ exports.createCar = async (req, res) => {
 };
 
 
-const getCarList = async (req, res) => {
+exports.getCarList = async (req, res) => {
   try {
     const { status } = req.params;
     const cars = await ProductModel.find({status: status});
