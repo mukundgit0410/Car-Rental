@@ -1,5 +1,7 @@
 const UserModel = require("../models/USERS.scehma");
 const bcrypt = require("bcrypt");
+const hash = require("./hash");
+
 
 exports.cretaeUserTypeController = async (req, res) => {
   const { user_type } = req.body;
@@ -74,6 +76,9 @@ exports.loginController = async (req, res) => {
     }
 
     if (passwordIsValid) {
+
+      var token = hash.authorization();
+      res.setHeader("jwt", token);
       return res.json({
         message: "Login Successfully",
       });
