@@ -77,8 +77,8 @@ exports.loginController = async (req, res) => {
 
     if (passwordIsValid) {
 
-      var token = hash.authorization();
-      res.setHeader("jwt", token);
+      // var token = hash.authorization();
+      // res.setHeader("jwt", token);
       return res.json({
         message: "Login Successfully",
       });

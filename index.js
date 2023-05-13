@@ -3,7 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 var cors = require('cors')
-const hash = require("./hash");
+const hash = require("./controllers/hash");
 
 const mongoose = require("mongoose");
 app.use(express.json());
